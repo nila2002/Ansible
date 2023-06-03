@@ -1,0 +1,13 @@
+---
+- name: Install the IIS web server on managed hosts
+  hosts: CHANGE_ME
+  tasks:
+    - name: Install service
+      win_feature:
+        name: Web-Server
+        state: present
+
+    - name: Start service
+      win_service:
+        name: W3Svc
+        state: started
